@@ -1,9 +1,8 @@
 import axios from "axios";
 
-// Change this if your Flask backend runs on a different host/port.
-const BASE_URL = "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
-const client = axios.create({ baseURL: BASE_URL, timeout: 8000 });
+const client = axios.create({ baseURL: API_URL, timeout: 8000 });
 
 export const getHealth = () => client.get("/api/health").then((r) => r.data);
 
