@@ -4,7 +4,7 @@ export default function TabNav({ active, onChange, labels }) {
   const tabs = [
     { id: "advisor", label: labels.tabAdvisor },
     { id: "compare", label: labels.tabCompare },
-    { id: "history", label: labels.tabHistory },
+    { id: "about", label: labels.tabAbout },
   ];
 
   return (

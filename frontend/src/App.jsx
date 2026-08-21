@@ -11,7 +11,7 @@ import TrendChart from "./components/TrendChart";
 import LanguageToggle from "./components/LanguageToggle";
 import TabNav from "./components/TabNav";
 import CompareView from "./components/CompareView";
-import HistoryView from "./components/HistoryView";
+import AboutView from "./components/AboutView";
 import "./App.css";
 
 export default function App() {
@@ -177,7 +177,7 @@ export default function App() {
           <CompareView stations={stations} lang={lang} text={text} />
         )}
 
-        {tab === "history" && <HistoryView text={text} />}
+        {tab === "about" && <AboutView text={text} />}
       </main>
 
       <footer className="app-footer">
