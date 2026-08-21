@@ -1,0 +1,57 @@
+// UI chrome strings. The advisory content itself (headline/tips/risk label)
+// is translated server-side in app.py — this file only covers labels,
+// buttons, and section titles rendered directly by React components.
+export const UI_TEXT = {
+  en: {
+    tagline: "Route-level exposure, not just city-wide AQI.",
+    tabAdvisor: "Advisor",
+    tabCompare: "Compare Routes",
+    tabHistory: "History",
+    corridorTitle: "01 — Your commute corridor",
+    commuteTitle: "02 — How you're commuting",
+    advisoryTitle: "03 — Your advisory",
+    transport: "Transport mode",
+    mask: "Mask",
+    timeOfDay: "Time of day",
+    exposureScore: "exposure score",
+    ringCaption:
+      "Your personal exposure score — combines this corridor's air quality with your transport, mask, and timing choices. Higher means more inhaled pollution on this specific commute.",
+    footer:
+      "Built for the AI for Sustainability Virtual Internship · SDG 11 & SDG 3 · Exposure scoring is a transparent, rule-based estimate — not a medical measurement.",
+    compareIntro: "Pick two corridors to see which one carries more personal exposure risk for the same commute setup.",
+    compareRouteA: "Route A",
+    compareRouteB: "Route B",
+    compareWinner: "lower exposure",
+    historyIntro: "Your last 7 days of exposure checks, logged automatically each time you check the Advisor tab.",
+    historyEmpty: "No history yet — use the Advisor tab a few times and it'll show up here.",
+    historyClear: "Clear history",
+    historyAvg: "avg exposure",
+    historyChecks: "checks",
+  },
+  kn: {
+    tagline: "ನಗರದ ಒಟ್ಟಾರೆ AQI ಅಲ್ಲ, ನಿಮ್ಮ ಮಾರ್ಗದ ಮಟ್ಟದ ಮಾಲಿನ್ಯ ಸಂಪರ್ಕ.",
+    tabAdvisor: "ಸಲಹೆಗಾರ",
+    tabCompare: "ಮಾರ್ಗಗಳನ್ನು ಹೋಲಿಸಿ",
+    tabHistory: "ಇತಿಹಾಸ",
+    corridorTitle: "೦೧ — ನಿಮ್ಮ ಪ್ರಯಾಣದ ಮಾರ್ಗ",
+    commuteTitle: "೦೨ — ನೀವು ಹೇಗೆ ಪ್ರಯಾಣಿಸುತ್ತಿದ್ದೀರಿ",
+    advisoryTitle: "೦೩ — ನಿಮ್ಮ ಸಲಹೆ",
+    transport: "ಸಾರಿಗೆ ವಿಧಾನ",
+    mask: "ಮಾಸ್ಕ್",
+    timeOfDay: "ಸಮಯ",
+    exposureScore: "ಮಾಲಿನ್ಯ ಸಂಪರ್ಕ ಅಂಕ",
+    ringCaption:
+      "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮಾಲಿನ್ಯ ಸಂಪರ್ಕ ಅಂಕ — ಈ ಮಾರ್ಗದ ಗಾಳಿಯ ಗುಣಮಟ್ಟವನ್ನು ನಿಮ್ಮ ಸಾರಿಗೆ, ಮಾಸ್ಕ್ ಮತ್ತು ಸಮಯದ ಆಯ್ಕೆಗಳೊಂದಿಗೆ ಸಂಯೋಜಿಸುತ್ತದೆ. ಹೆಚ್ಚಿನ ಅಂಕ ಎಂದರೆ ಈ ಪ್ರಯಾಣದಲ್ಲಿ ಹೆಚ್ಚು ಮಾಲಿನ್ಯ ಸಂಪರ್ಕ.",
+    footer:
+      "AI for Sustainability Virtual Internship ಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ · SDG 11 ಮತ್ತು SDG 3 · ಮಾಲಿನ್ಯ ಅಂಕವು ಪಾರದರ್ಶಕ, ನಿಯಮ-ಆಧಾರಿತ ಅಂದಾಜು — ವೈದ್ಯಕೀಯ ಅಳತೆಯಲ್ಲ.",
+    compareIntro: "ಒಂದೇ ಪ್ರಯಾಣ ಸೆಟಪ್‌ಗೆ ಯಾವ ಮಾರ್ಗವು ಹೆಚ್ಚು ವೈಯಕ್ತಿಕ ಮಾಲಿನ್ಯ ಅಪಾಯ ಹೊಂದಿದೆ ಎಂದು ನೋಡಲು ಎರಡು ಮಾರ್ಗಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+    compareRouteA: "ಮಾರ್ಗ A",
+    compareRouteB: "ಮಾರ್ಗ B",
+    compareWinner: "ಕಡಿಮೆ ಮಾಲಿನ್ಯ ಸಂಪರ್ಕ",
+    historyIntro: "ನೀವು ಸಲಹೆಗಾರ ಟ್ಯಾಬ್ ಪರಿಶೀಲಿಸಿದಾಗಲೆಲ್ಲಾ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ದಾಖಲಾದ ಕಳೆದ 7 ದಿನಗಳ ಮಾಲಿನ್ಯ ಸಂಪರ್ಕ ಪರಿಶೀಲನೆಗಳು.",
+    historyEmpty: "ಇನ್ನೂ ಇತಿಹಾಸವಿಲ್ಲ — ಸಲಹೆಗಾರ ಟ್ಯಾಬ್ ಅನ್ನು ಕೆಲವು ಬಾರಿ ಬಳಸಿ, ಅದು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.",
+    historyClear: "ಇತಿಹಾಸ ಅಳಿಸಿ",
+    historyAvg: "ಸರಾಸರಿ ಮಾಲಿನ್ಯ",
+    historyChecks: "ಪರಿಶೀಲನೆಗಳು",
+  },
+};

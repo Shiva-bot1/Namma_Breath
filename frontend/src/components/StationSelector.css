@@ -1,0 +1,43 @@
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 12px 0;
+}
+
+.station-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.station-chip {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--card-border);
+  background: var(--sky-white);
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.station-chip:hover {
+  border-color: var(--teal-light);
+  color: var(--teal);
+  transform: translateY(-1px);
+}
+
+.station-chip-active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: white;
+}
+
+.station-chip-active:hover {
+  color: white;
+}

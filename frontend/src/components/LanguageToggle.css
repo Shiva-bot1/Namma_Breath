@@ -1,0 +1,33 @@
+.lang-toggle {
+  display: inline-flex;
+  background: var(--sky-white);
+  border: 1.5px solid var(--card-border);
+  border-radius: 10px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.lang-btn:hover {
+  color: var(--ink);
+}
+
+.lang-btn-active {
+  background: var(--teal);
+  color: white;
+}
+
+.lang-btn-active:hover {
+  color: white;
+}

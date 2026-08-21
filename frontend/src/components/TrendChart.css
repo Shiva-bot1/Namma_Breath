@@ -1,0 +1,40 @@
+.trend-chart {
+  background: white;
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px 20px 14px;
+}
+
+.trend-chart-loading {
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-style: italic;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.trend-tooltip {
+  background: var(--ink);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.trend-tooltip-time {
+  font-family: var(--font-mono);
+  opacity: 0.7;
+  margin-bottom: 2px;
+}
+
+.trend-tooltip-aqi {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.trend-caption {
+  margin: 8px 2px 0;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
