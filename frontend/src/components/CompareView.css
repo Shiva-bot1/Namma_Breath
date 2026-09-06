@@ -1,0 +1,101 @@
+.compare-view {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.compare-intro {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 620px;
+}
+
+.compare-selectors {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.compare-select {
+  flex: 1;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--card-border);
+  background: white;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.compare-vs {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--marigold);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.compare-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.compare-card {
+  background: white;
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.compare-card-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--teal);
+  margin: 0;
+}
+
+.compare-card-station {
+  font-size: 17px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.compare-card-detail {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.compare-card-aqi {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.compare-verdict {
+  background: var(--sky-white);
+  border: 1.5px dashed var(--teal-light);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: var(--ink);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .compare-results {
+    grid-template-columns: 1fr;
+  }
+}

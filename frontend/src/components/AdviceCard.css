@@ -1,0 +1,99 @@
+.advice-card {
+  background: white;
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.advice-empty {
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-style: italic;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.advice-headline {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--ink);
+}
+
+.advice-tips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.advice-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.tip-marker {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--marigold);
+  margin-top: 7px;
+}
+
+.advice-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--card-border);
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+}
+
+.data-badge-live {
+  color: var(--sage);
+  font-weight: 600;
+}
+
+.data-badge-mock {
+  color: var(--ink-soft);
+}
+
+/* Loading skeleton */
+.advice-loading {
+  gap: 12px;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #eef4f3 25%, #f6faf9 37%, #eef4f3 63%);
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+}
+
+.skeleton-wide {
+  width: 90%;
+  height: 18px;
+}
+
+.skeleton-short {
+  width: 55%;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}

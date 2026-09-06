@@ -1,0 +1,40 @@
+.about-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.about-logo {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.about-credit {
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: 4px 0 0;
+  font-style: italic;
+}

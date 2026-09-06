@@ -1,0 +1,70 @@
+:root {
+  /* --- Namma Breath design tokens --- */
+  --teal: #0b5d57;
+  --teal-light: #12897f;
+  --marigold: #f4a300;
+  --marigold-soft: #ffd985;
+  --sky: #eaf4f4;
+  --sky-white: #f7fbfb;
+  --ink: #1f2421;
+  --ink-soft: #4a534f;
+  --coral: #e8543e;
+  --sage: #7fa88e;
+  --card-border: #d7e6e3;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--sky);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(244, 163, 0, 0.10), transparent 45%),
+    radial-gradient(circle at 100% 10%, rgba(11, 93, 87, 0.10), transparent 40%);
+  color: var(--ink);
+  font-family: var(--font-body), "Noto Sans Kannada", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--marigold-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

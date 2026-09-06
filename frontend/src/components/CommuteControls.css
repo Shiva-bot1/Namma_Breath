@@ -1,0 +1,46 @@
+.commute-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.control-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.control-pill {
+  padding: 7px 13px;
+  border-radius: 8px;
+  border: 1.5px solid var(--card-border);
+  background: white;
+  color: var(--ink-soft);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.control-pill:hover {
+  border-color: var(--marigold);
+  color: var(--ink);
+}
+
+.control-pill-active {
+  background: var(--marigold);
+  border-color: var(--marigold);
+  color: var(--ink);
+  font-weight: 600;
+}
