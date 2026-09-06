@@ -29,26 +29,29 @@ function makePinIcon(color, label) {
 
 const iconA = makePinIcon("#0B5D57", "A"); // teal, matches brand primary
 const iconB = makePinIcon("#F4A300", "B"); // marigold, matches brand accent
+const cityIcon = L.divIcon({
+  html: '<span class="route-map-city-pin"></span>',
+  className: "route-map-pin",
+  iconSize: [14, 14],
+  iconAnchor: [7, 7],
+});
 
 // Adjusts the map view to fit both markers whenever the selected stations
 // change, instead of leaving the view static or requiring the user to
 // manually pan/zoom to see both corridors at once.
-function FitToMarkers({ stationA, stationB }) {
+function FitToMarkers({ stations }) {
   const map = useMap();
 
   useEffect(() => {
-    if (!stationA || !stationB) return;
-    const bounds = L.latLngBounds(
-      [stationA.lat, stationA.lng],
-      [stationB.lat, stationB.lng]
-    );
+    if (!stations.length) return;
+    const bounds = L.latLngBounds(stations.map((station) => [station.lat, station.lng]));
     map.fitBounds(bounds, { padding: [48, 48], maxZoom: 13 });
-  }, [map, stationA, stationB]);
+  }, [map, stations]);
 
   return null;
 }
 
-export default function RouteMap({ stationA, stationB }) {
+export default function RouteMap({ stations = [], stationA, stationB }) {
   return (
     <div className="route-map-wrap">
       <MapContainer
@@ -61,25 +64,24 @@ export default function RouteMap({ stationA, stationB }) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {stationA && (
-          <Marker position={[stationA.lat, stationA.lng]} icon={iconA}>
-            <Popup>
-              <strong>Route A</strong>
-              <br />
-              {stationA.name}
-            </Popup>
-          </Marker>
-        )}
-        {stationB && (
-          <Marker position={[stationB.lat, stationB.lng]} icon={iconB}>
-            <Popup>
-              <strong>Route B</strong>
-              <br />
-              {stationB.name}
-            </Popup>
-          </Marker>
-        )}
-        <FitToMarkers stationA={stationA} stationB={stationB} />
+        {stations.map((station) => {
+          const isRouteA = station.id === stationA?.id;
+          const isRouteB = station.id === stationB?.id;
+          return (
+            <Marker
+              key={station.id}
+              position={[station.lat, station.lng]}
+              icon={isRouteA ? iconA : isRouteB ? iconB : cityIcon}
+            >
+              <Popup>
+                <strong>{isRouteA ? "Route A" : isRouteB ? "Route B" : "Bengaluru station"}</strong>
+                <br />
+                {station.name}
+              </Popup>
+            </Marker>
+          );
+        })}
+        <FitToMarkers stations={stations} />
       </MapContainer>
     </div>
   );

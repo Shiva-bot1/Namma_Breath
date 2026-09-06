@@ -86,6 +86,7 @@ export default function CompareView({ stations, lang, text }) {
       </div>
 
       <RouteMap
+        stations={stations}
         stationA={stations.find((s) => s.id === stationA)}
         stationB={stations.find((s) => s.id === stationB)}
       />

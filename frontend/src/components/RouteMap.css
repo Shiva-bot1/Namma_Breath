@@ -16,6 +16,16 @@
   border: none;
 }
 
+.route-map-city-pin {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: var(--teal-light);
+  box-shadow: 0 1px 5px rgba(15, 45, 42, 0.45);
+}
+
 .leaflet-popup-content-wrapper {
   border-radius: 10px;
   font-family: var(--font-body);

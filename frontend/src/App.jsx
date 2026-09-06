@@ -35,7 +35,7 @@ export default function App() {
   const [advice, setAdvice] = useState(null);
   const [adviceLoading, setAdviceLoading] = useState(false);
 
-  const [connectionStatus, setConnectionStatus] = useState("connecting"); // "connecting" | "connected" | "error"
+  const [connectionStatus, setConnectionStatus] = useState("connecting"); // "connecting" | "connected"
   const [showConnectingBanner, setShowConnectingBanner] = useState(false);
   const failCountRef = useRef(0);
   const retryTimeoutRef = useRef(null);
@@ -76,10 +76,8 @@ export default function App() {
   }, [connectWithRetry]);
 
   // If a later request fails (e.g. connection dropped after initially
-  // working), don't flash an error on a single blip — only escalate after
-  // a couple of consecutive failures, and keep retrying station-list
-  // fetches in the background so it recovers on its own once the backend
-  // responds again.
+  // working), keep the UI in its loading/retry state and let the background
+  // station-list request recover without interrupting the page with an error.
   const reportRequestOutcome = useCallback((succeeded) => {
     if (succeeded) {
       failCountRef.current = 0;
@@ -88,7 +86,7 @@ export default function App() {
     }
     failCountRef.current += 1;
     if (failCountRef.current >= 2) {
-      setConnectionStatus("error");
+      setConnectionStatus("connecting");
       if (!retryTimeoutRef.current) {
         retryTimeoutRef.current = setTimeout(() => {
           retryTimeoutRef.current = null;
@@ -172,19 +170,6 @@ export default function App() {
           {IS_DEPLOYED
             ? "Connecting to the server… this can take up to 30 seconds if it's been idle."
             : "Connecting to the backend…"}
-        </div>
-      )}
-
-      {connectionStatus === "error" && (
-        <div className="app-banner-error">
-          {IS_DEPLOYED ? (
-            "Having trouble reaching the server. Retrying automatically — this page will recover on its own once it responds."
-          ) : (
-            <>
-              Can't reach the backend at <code>localhost:5000</code>. Make sure{" "}
-              <code>python app.py</code> is running in the backend folder — retrying automatically.
-            </>
-          )}
         </div>
       )}
 
