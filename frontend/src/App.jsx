@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { getStations, getAqi, getTrend, getAdvice, IS_DEPLOYED } from "./api/client";
+import { getStations, getAqi, getTrend, getAdvice, IS_DEPLOYED, FALLBACK_STATIONS } from "./api/client";
 import { UI_TEXT } from "./i18n";
 import logoIcon from "./assets/logo-icon.png";
 import AqiHeader from "./components/AqiHeader";
@@ -56,6 +56,8 @@ export default function App() {
       })
       .catch(() => {
         if (!mountedRef.current) return;
+        setStations((current) => (current.length ? current : FALLBACK_STATIONS));
+        setStationId((current) => current ?? FALLBACK_STATIONS[0].id);
         const delay = Math.min(1500 + attempt * 1500, 6000); // 1.5s, 3s, 4.5s, 6s, 6s...
         setConnectionStatus((prev) => (prev === "connected" ? "connected" : "connecting"));
         retryTimeoutRef.current = setTimeout(() => connectWithRetry(attempt + 1), delay);
