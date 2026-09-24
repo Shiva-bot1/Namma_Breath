@@ -1,9 +1,12 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { getAdvice } from "../api/client";
 import ExposureRing from "./ExposureRing";
 import CommuteControls from "./CommuteControls";
-import RouteMap from "./RouteMap";
 import "./CompareView.css";
+
+// RouteMap pulls in leaflet + react-leaflet (~150 KB gz). Lazy-load it so the
+// leaflet chunk is only fetched when the Compare tab is first opened.
+const RouteMap = lazy(() => import("./RouteMap"));
 
 function RouteResult({ label, advice, loading, stationName }) {
   return (
@@ -85,11 +88,13 @@ export default function CompareView({ stations, lang, text }) {
         </select>
       </div>
 
-      <RouteMap
-        stations={stations}
-        stationA={stations.find((s) => s.id === stationA)}
-        stationB={stations.find((s) => s.id === stationB)}
-      />
+      <Suspense fallback={<div className="route-map-wrap" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "220px" }}>Loading map…</div>}>
+        <RouteMap
+          stations={stations}
+          stationA={stations.find((s) => s.id === stationA)}
+          stationB={stations.find((s) => s.id === stationB)}
+        />
+      </Suspense>
 
       <div className="panel">
         <CommuteControls

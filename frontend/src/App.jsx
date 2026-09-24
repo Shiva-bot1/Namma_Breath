@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from "react";
 import { getStations, getAqi, getTrend, getAdvice, IS_DEPLOYED } from "./api/client";
 import { UI_TEXT } from "./i18n";
 import logoIcon from "./assets/logo-icon.png";
@@ -7,12 +7,15 @@ import ExposureRing from "./components/ExposureRing";
 import StationSelector from "./components/StationSelector";
 import CommuteControls from "./components/CommuteControls";
 import AdviceCard from "./components/AdviceCard";
-import TrendChart from "./components/TrendChart";
 import LanguageToggle from "./components/LanguageToggle";
 import TabNav from "./components/TabNav";
-import CompareView from "./components/CompareView";
 import AboutView from "./components/AboutView";
 import "./App.css";
+
+// Lazy-load heavy chart/map chunks so they are only fetched when the
+// component first renders, keeping the initial bundle small.
+const TrendChart = lazy(() => import("./components/TrendChart"));
+const CompareView = lazy(() => import("./components/CompareView"));
 
 export default function App() {
   const [tab, setTab] = useState("advisor");
@@ -218,14 +221,18 @@ export default function App() {
 
               <div className="layout-col">
                 <AdviceCard advice={advice} loading={adviceLoading} title={text.advisoryTitle} />
-                <TrendChart hours={trendData} loading={trendLoading} />
+                <Suspense fallback={<div className="trend-chart trend-chart-loading">Loading chart…</div>}>
+                  <TrendChart hours={trendData} loading={trendLoading} />
+                </Suspense>
               </div>
             </section>
           </>
         )}
 
         {tab === "compare" && stations.length > 0 && (
-          <CompareView stations={stations} lang={lang} text={text} />
+          <Suspense fallback={<div style={{ padding: "2rem", textAlign: "center" }}>Loading map…</div>}>
+            <CompareView stations={stations} lang={lang} text={text} />
+          </Suspense>
         )}
 
         {tab === "about" && <AboutView text={text} />}
